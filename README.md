@@ -12,3 +12,4 @@
 - express
 - nodemon
 - cors
+- body-parser
