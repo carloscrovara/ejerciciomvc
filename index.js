@@ -38,9 +38,13 @@ app.get("/productos/:id", function (req, res) {
 //CREAR PRODUCTO -> POST -> POR BODY(id, nombre, precio, stock)
 app.post("/productos/nuevo", function (req, res) {
      
-  
+  let itemIds = data.map(item => item.id);
+
+ 
+  let nuevoId = itemIds.length > 0 ? Math.max.apply(Math, itemIds) + 1 : 1;
+
     let nuevoProducto = {
-        id: req.body.id,
+        id: nuevoId,
         nombre: req.body.nombre,
         precio: req.body.precio,
         stock: req.body.stock
